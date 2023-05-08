@@ -2,11 +2,11 @@
 # Challenge Backend
 ### Instrucciones
 #### Consigna
-- (&#9745)Se desea crear un servicio de carga de excels con validación de formato y notificación de procesamiento.
-- El servicio debe presentar una api con un endpoint que permita hacer un upload de un archivo excel el cual tendran una serie de datos.
-- Al subir el excel, se deberá retornar un id haciendo referencia a la tarea de carga.
-- Se deberá permitir recuperar el estado de dicha tarea la cual permitirá saber si el excel está en estado “pending” si todavía no se está procesando el archivo, “processing” o “done” e informar en “errors” la cantidad de errores encontrados en el archivo.
-- Se deberá permitir recuperar los errores del archivo de forma paginada, indicando la fila y columna que ocasionó el error.
+- [ ] Se desea crear un servicio de carga de excels con validación de formato y notificación de procesamiento.
+- [ ] El servicio debe presentar una api con un endpoint que permita hacer un upload de un archivo excel el cual tendran una serie de datos.
+- [ ] Al subir el excel, se deberá retornar un id haciendo referencia a la tarea de carga.
+- [ ] Se deberá permitir recuperar el estado de dicha tarea la cual permitirá saber si el excel está en estado “pending” si todavía no se está procesando el archivo, “processing” o “done” e informar en “errors” la cantidad de errores encontrados en el archivo.
+- [ ] Se deberá permitir recuperar los errores del archivo de forma paginada, indicando la fila y columna que ocasionó el error.
 Challenge Tecnico de Koibanx
 
 #### Formato de mapeo
