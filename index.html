@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Carga de archivo Excel</title>
+</head>
+<body>
+  <h1>Carga de archivo Excel</h1>
+  <form id="formulario" method="post" action="/upload" enctype="multipart/form-data">
+    <label for="archivo">Selecciona un archivo Excel:</label>
+    <input type="file" id="archivo" name="archivo" accept=".xlsx,.xls">
+
+    <input type="submit" value="Cargar archivo">
+  </form>
+
+  <p id="estado"></p>
+ 
+  <script>
+    const formulario = document.getElementById('formulario');
+    const estado = document.getElementById('estado');
+
+    formulario.archivo.addEventListener('change', () => {
+      estado.textContent = 'Status - Pending';
+      });
+
+    formulario.addEventListener('submit', async (evento) => {
+      evento.preventDefault();
+      const archivo = formulario.archivo.files[0];
+      if (!archivo) {
+        return;
+      }
+      const url = '/upload';
+      const datos = new FormData();
+      datos.append('archivo', archivo);
+
+      // Mostrar el estado de procesamiento
+      estado.textContent = 'Status - Processing';
+
+      try {
+        // Enviar la petición para cargar el archivo y procesarlo
+        const respuesta = await fetch(url, {
+          method: 'POST',
+          body: datos
+        });
+        const resultado = await respuesta.json();
+        // Mostrar el resultado del procesamiento
+        estado.textContent = resultado.mensaje;
+        estado.textContent = 'Status - Done || Referencia: [' + resultado + ']';
+
+      } catch (error) {
+        // Mostrar un mensaje de error si ocurre un problema
+        estado.textContent = 'Ocurrió un error al procesar el archivo';
+        
+      }
+    });
+  </script>
+
+</body>
+</html>
